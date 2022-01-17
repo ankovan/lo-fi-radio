@@ -1,26 +1,76 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="main"
+    :style="{
+      '--body': theme.body,
+      '--body-text': theme.bodyText,
+    }"
+  >
+    <div><Background @loaded ="loading"/></div>
+    <div><Effects/></div>
+    <div><Theme @toggleTheme = "toggleTheme"/></div>
+    <div><Loading v-show="isLoading"/></div>
+    <div><Player/></div>
+  </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Background from "@/components/Background"
+import Player from "@/components/Player"
+import Loading from "@/components/Loading"
+import Theme from "@/components/Theme"
+import Effects from "@/components/Effects"
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    Background,
+    Player,
+    Loading,
+    Theme,
+    Effects,
+  },
+  data() {
+    return {
+      isLoading: false,
+      theme: {
+        body: "rgb(240, 240, 240, 0.75)",
+        bodyText: "rgb(85, 85, 85)"
+      },
+      themes: {
+        dark: {
+          body: "rgb(85, 85, 85, 0.75)",
+          bodyText: "rgb(240, 240, 240)"
+
+        },
+        light: {
+          body: "rgb(240, 240, 240, 0.75)",
+          bodyText: "rgb(85, 85, 85)"
+
+        }
+      }
+    }
+  },
+  methods: {
+    loading(loaded) {
+      this.isLoading = !loaded
+    },
+    toggleTheme(isDarkMode) {
+      if(isDarkMode) {
+        this.theme = this.themes.dark
+        document.body.style.backgroundColor = this.themes.dark.body;
+      } else {
+        this.theme = this.themes.light
+        document.body.style.backgroundColor = this.themes.light.body;
+      }
+    }
+  },
+};
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Sora', sans-serif;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  --background-color: black;
 }
 </style>
