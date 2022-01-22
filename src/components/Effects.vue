@@ -1,17 +1,19 @@
 <template>
-  <div id="button-settings">
-    <details :open = "isOpenEffects" @mouseover="isOpenEffects = true" @mouseout="isOpenEffects = false">
-     <summary>add sound effects</summary>
-     <div>
-       <div 
-          v-for="effect in effects"
-          :key="effect"
-          >{{effect.name}}
-          <Volume defaultVolume = "0" @mute="mute(effect.name, `effect-${effect.name}`, $event)" :playerRef="`effect-${effect.name}`" :isAlwaysOpenVolume="true" class="effects"/>
-        </div>
-     </div>
-    </details>
-  </div>
+  <!-- <div class="button-settings-wrapper"> -->
+    <div id="button-settings">
+      <details @click.prevent :open = "isOpenEffects" @mouseover="isOpenEffects = true" @mouseout="isOpenEffects = false">
+      <summary>add sound effects</summary>
+      <div>
+        <div 
+            v-for="effect in effects"
+            :key="effect"
+            >{{effect.name}}
+            <Volume defaultVolume = "0" @mute="mute(effect.name, `effect-${effect.name}`, $event)" :playerRef="`effect-${effect.name}`" :isAlwaysOpenVolume="true" class="effects"/>
+          </div>
+      </div>
+      </details>
+    </div>
+  <!-- </div> -->
   <div class="sound-players">
     <audio :ref="`effect-${effect.name}`" v-for="effect in effects"
             :key="effect" 
@@ -54,10 +56,14 @@ export default {
 }
 </script>
 <style>
+/* .button-settings-wrapper {
+  display: flex;
+  justify-content: end;
+}  */
 #button-settings {
   position: fixed;
-  top: 0.9rem;
-  right: 14.6rem;
+  top: 0.8rem;
+  right: 14.6rem; 
   background-color: var(--body);
   color: var(--body-text);
   padding: 0.38rem;

@@ -1,18 +1,20 @@
 <template>
   <div class="background-image">
-    <div class="button-settings" id="bg-changer">
-      <details :open = "isOpenBackgroundChanger" @mouseover="isOpenBackgroundChanger = true" @mouseout="isOpenBackgroundChanger = false">
-        <summary>change background</summary>
-        <div id="background-themes">
-          <div 
-            v-for="background in backgrounds"
-            :key="background" 
-            class="theme"
-            @click="changeBackground(background)"
-          >{{background.name}}</div>
-        </div>
-      </details>
-    </div>
+    <!-- <div class="button-settings-wrapper"> -->
+      <div class="button-settings" id="bg-changer">
+        <details :open = "isOpenBackgroundChanger" @mouseover="isOpenBackgroundChanger = true" @mouseout="isOpenBackgroundChanger = false">
+          <summary>change background</summary>
+          <div id="background-themes">
+            <div 
+              v-for="background in backgrounds"
+              :key="background" 
+              class="theme"
+              @click="changeBackground(background)"
+            >{{background.name}}</div>
+          </div>
+        </details>
+      </div>
+    <!-- </div> -->
     <div class="background-image" v-if ="currentBackground.type === 'image'">
       <img :src="currentBackground.url">  
     </div>
@@ -73,6 +75,10 @@ export default {
 </script>
 
 <style scoped>
+/* .button-settings-wrapper {
+  display: flex;
+  justify-content: end;
+}  */
 .background-image {
   width: 100%;
   height: 100vh;
@@ -82,11 +88,17 @@ img, video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  width: 100vw; /* Could also use width: 100%; */
+  height: 100vh;
+  object-fit: cover;
+  position: fixed; /* Change position to absolute if you don't want it to take up the whole page */
+  left: 0px;
+  top: 0px;
 }
 .button-settings {
   position: fixed;
-  top: 0.9rem;
-  right: 4rem;
+  top: 0.8rem;
+  right: 4rem; 
   background-color: var(--body);
   padding: 0.38rem;
   border-radius: 0.2rem;
