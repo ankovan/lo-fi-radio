@@ -156,9 +156,15 @@ details > summary {
 }
 .slidecontainer {
   position: absolute;
-  right: -2.6rem;
-  bottom: 5rem;
+  right: -2.2rem;
+  bottom: 5.4rem;
   transform: rotate(270deg);
+  width: 8rem;
+  height: 0.7rem;
+}
+.slidecontainer > input {
+  width: 8rem;
+  height: 0.7rem;
 }
 /* .slider {
 -webkit-appearance: none;

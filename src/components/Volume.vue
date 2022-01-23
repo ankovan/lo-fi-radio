@@ -75,6 +75,6 @@ border-radius: 0.8rem;
   height: 0.75rem;
   background: var(--body-text);
   cursor: pointer;
-  border-radius: 1rem;
+  border-radius: 100%;
 } 
 </style>

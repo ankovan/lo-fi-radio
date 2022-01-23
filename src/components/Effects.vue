@@ -78,7 +78,7 @@ export default {
 .effects > .slidecontainer {
   transform: rotate(0deg);
   left: 1.35rem;
-  bottom: 0.4rem;
+  bottom: 0.85rem;
 }
 .effects .slider {
   width: 6.8rem;
