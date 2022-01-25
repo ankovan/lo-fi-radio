@@ -3,6 +3,7 @@
     :style="{
       '--body': theme.body,
       '--body-text': theme.bodyText,
+      '--body-hover': theme.bodyHover
     }"
   >
     <div><Background @loaded ="loading"/></div>
@@ -31,18 +32,19 @@ export default {
       isLoading: false,
       theme: {
         body: "rgb(240, 240, 240, 0.75)",
-        bodyText: "rgb(85, 85, 85)"
+        bodyText: "rgb(85, 85, 85)",
+        bodyHover: "rgb(175, 175, 175)",
       },
       themes: {
         dark: {
           body: "rgb(85, 85, 85, 0.75)",
-          bodyText: "rgb(240, 240, 240)"
-
+          bodyText: "rgb(240, 240, 240)",
+          bodyHover: "rgb(100, 100, 100)",
         },
         light: {
           body: "rgb(240, 240, 240, 0.75)",
-          bodyText: "rgb(85, 85, 85)"
-
+          bodyText: "rgb(85, 85, 85)",
+          bodyHover: "rgb(175, 175, 175)",
         }
       }
     }

@@ -135,6 +135,6 @@ details > summary {
   font-size: 0.85rem;
 }
 #background-themes .theme:hover {
-  background-color: rgba(248, 239, 226, 0.6);
+  background-color: var(--body-hover);
 }
 </style>
