@@ -9,14 +9,13 @@
     font-size: 1.3rem;
   }
   #theme {
-    position: fixed;
-    top: 0.8rem;
-    right: 0.6rem;
     padding: 0.2rem 0.4rem 0.1rem 0.4rem;
     border-radius: 0.2rem;
     background-color: var(--body);
     cursor: pointer;
     user-select: none;
+    margin-left: 0.5rem;
+    float: left;
   }
   #light-setter {
     color: var(--body-text);

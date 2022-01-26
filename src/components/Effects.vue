@@ -61,16 +61,13 @@ export default {
   justify-content: end;
 }  */
 #button-settings {
-  position: fixed;
-  top: 0.8rem;
-  right: 14.6rem; 
   background-color: var(--body);
   color: var(--body-text);
   padding: 0.38rem;
   border-radius: 0.2rem;
   cursor: pointer;
   font-size: 0.9rem;
-  z-index: 999;
+  float: left;
 } 
 .sound-players {
   display: none;

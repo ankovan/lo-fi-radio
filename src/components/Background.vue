@@ -1,7 +1,6 @@
 <template>
   <div class="background-image">
-    <!-- <div class="button-settings-wrapper"> -->
-      <div class="button-settings" id="bg-changer">
+      <!-- <div class="button-settings" id="bg-changer">
         <details :open = "isOpenBackgroundChanger" @mouseover="isOpenBackgroundChanger = true" @mouseout="isOpenBackgroundChanger = false">
           <summary>change background</summary>
           <div id="background-themes">
@@ -13,8 +12,7 @@
             >{{background.name}}</div>
           </div>
         </details>
-      </div>
-    <!-- </div> -->
+      </div> -->
     <div class="background-image" v-if ="currentBackground.type === 'image'">
       <img :src="currentBackground.url">  
     </div>
@@ -28,45 +26,58 @@
 
 <script> 
 export default {
-  data() {
-    return {
-      backgrounds: [
-        {name: "retro room", url: "https://ankovan.drewdru.com/lfr/backgrounds/retro-room.mp4", type: "video"},
-        {name: "cat girl", url: "https://ankovan.drewdru.com/lfr/backgrounds/cat-girl.mp4", type: "video"},
-        {name: "space station", url: "https://ankovan.drewdru.com/lfr/backgrounds/cosmo-girl.mp4", type: "video"},
-        {name: "street telephone", url: "https://ankovan.drewdru.com/lfr/backgrounds/street-telephone.mp4", type: "video"},
-        {name: "two umbrellas", url: "https://ankovan.drewdru.com/lfr/backgrounds/two-umbrellas.mp4", type: "video"},
-        {name: "office", url: "https://ankovan.drewdru.com/lfr/backgrounds/office-girls.mp4", type: "video"},
-        {name: "koi pond", url: "https://ankovan.drewdru.com/lfr/backgrounds/koi-pond.mp4", type: "video"},
-        {name: "street art", url: "https://ankovan.drewdru.com/lfr/backgrounds/street-art.mp4", type: "video"},
-        {name: "howl and sophie", url: "https://ankovan.drewdru.com/lfr/backgrounds/howl-and-sophie.mp4", type: "video"},
-        {name: "cow", url: "https://ankovan.drewdru.com/lfr/backgrounds/cow.mp4", type: "video"},
-        {name: "night pines", url: "https://ankovan.drewdru.com/lfr/backgrounds/night-pines.mp4", type: "video"},
-        {name: "grass", url: "https://ankovan.drewdru.com/lfr/backgrounds/grass.mp4", type: "video"},
-        {name: "puddle", url: "https://ankovan.drewdru.com/lfr/backgrounds/puddle.mp4", type: "video"},
-        {name: "car drive", url: "https://ankovan.drewdru.com/lfr/backgrounds/car-drive.mp4", type: "video"},
-        {name: "keyhole day", url: "https://ankovan.drewdru.com/lfr/backgrounds/keyhole-day.mp4", type: "video"},
-        {name: "keyhole night", url: "https://ankovan.drewdru.com/lfr/backgrounds/keyhole-night.mp4", type: "video"},
-        {name: "temple", url: "https://ankovan.drewdru.com/lfr/backgrounds/temple.mp4", type: "video"},
-        {name: "vending machines", url: "https://ankovan.drewdru.com/lfr/backgrounds/vending-machines.mp4", type: "video"},
-        {name: "sleeping cat", url: "https://ankovan.drewdru.com/lfr/backgrounds/sleeping-cat.gif", type: "image"},
-      ],
-      currentBackground: {
-        name: "a retro room", url: "https://ankovan.drewdru.com/lfr/backgrounds/retro-room.mp4", type: "video",
-      },
-      isOpenBackgroundChanger: false,
-    }
-  },
-  methods: {
-    changeBackground(background) {
-      this.currentBackground = background
-      this.$emit("loaded", false);
-      if (background.type == "video") {
-        this.$refs.video.src = background.url
+  // data() {
+  //   return {
+  //     backgrounds: [
+  //       {name: "retro room", url: "https://ankovan.drewdru.com/lfr/backgrounds/retro-room.mp4", type: "video"},
+  //       {name: "cat girl", url: "https://ankovan.drewdru.com/lfr/backgrounds/cat-girl.mp4", type: "video"},
+  //       {name: "space station", url: "https://ankovan.drewdru.com/lfr/backgrounds/cosmo-girl.mp4", type: "video"},
+  //       {name: "street telephone", url: "https://ankovan.drewdru.com/lfr/backgrounds/street-telephone.mp4", type: "video"},
+  //       {name: "two umbrellas", url: "https://ankovan.drewdru.com/lfr/backgrounds/two-umbrellas.mp4", type: "video"},
+  //       {name: "office", url: "https://ankovan.drewdru.com/lfr/backgrounds/office-girls.mp4", type: "video"},
+  //       {name: "koi pond", url: "https://ankovan.drewdru.com/lfr/backgrounds/koi-pond.mp4", type: "video"},
+  //       {name: "street art", url: "https://ankovan.drewdru.com/lfr/backgrounds/street-art.mp4", type: "video"},
+  //       {name: "howl and sophie", url: "https://ankovan.drewdru.com/lfr/backgrounds/howl-and-sophie.mp4", type: "video"},
+  //       {name: "cow", url: "https://ankovan.drewdru.com/lfr/backgrounds/cow.mp4", type: "video"},
+  //       {name: "night pines", url: "https://ankovan.drewdru.com/lfr/backgrounds/night-pines.mp4", type: "video"},
+  //       {name: "grass", url: "https://ankovan.drewdru.com/lfr/backgrounds/grass.mp4", type: "video"},
+  //       {name: "puddle", url: "https://ankovan.drewdru.com/lfr/backgrounds/puddle.mp4", type: "video"},
+  //       {name: "car drive", url: "https://ankovan.drewdru.com/lfr/backgrounds/car-drive.mp4", type: "video"},
+  //       {name: "keyhole day", url: "https://ankovan.drewdru.com/lfr/backgrounds/keyhole-day.mp4", type: "video"},
+  //       {name: "keyhole night", url: "https://ankovan.drewdru.com/lfr/backgrounds/keyhole-night.mp4", type: "video"},
+  //       {name: "temple", url: "https://ankovan.drewdru.com/lfr/backgrounds/temple.mp4", type: "video"},
+  //       {name: "vending machines", url: "https://ankovan.drewdru.com/lfr/backgrounds/vending-machines.mp4", type: "video"},
+  //       {name: "sleeping cat", url: "https://ankovan.drewdru.com/lfr/backgrounds/sleeping-cat.gif", type: "image"},
+  //     ],
+  //     currentBackground: {
+  //       name: "a retro room", url: "https://ankovan.drewdru.com/lfr/backgrounds/retro-room.mp4", type: "video",
+  //     },
+  //     isOpenBackgroundChanger: false,
+  //   }
+  // },
+  props: [
+    "currentBackground"
+  ],
+  watch: {
+    currentBackground(newBacground, oldBackground) {
+       this.$emit("loaded", false);
+      if (newBacground.type == "video") {
+        this.$refs.video.src = newBacground.url
       } else {
         setTimeout(() => this.$emit("loaded", true), 0)
       }
-    },
+    }
+  },
+  methods: {
+    // changeBackground(background) {
+    //   this.currentBackground = background
+    //   this.$emit("loaded", false);
+    //   if (background.type == "video") {
+    //     this.$refs.video.src = background.url
+    //   } else {
+    //     setTimeout(() => this.$emit("loaded", true), 0)
+    //   }
+    // },
     loaded() {
       this.$emit("loaded", true);
     }
@@ -75,10 +86,6 @@ export default {
 </script>
 
 <style scoped>
-/* .button-settings-wrapper {
-  display: flex;
-  justify-content: end;
-}  */
 .background-image {
   width: 100%;
   height: 100vh;
@@ -95,7 +102,7 @@ img, video {
   left: 0px;
   top: 0px;
 }
-.button-settings {
+/* .button-settings {
   position: fixed;
   top: 0.8rem;
   right: 4rem; 
@@ -122,7 +129,7 @@ details > summary {
 }
 #background-themes::-webkit-scrollbar-track {
   background-color: var(--body); /* var(--color-name, #22222222) */
-  border-radius: 0.2rem;
+  /* border-radius: 0.2rem;
 }
 #background-themes::-webkit-scrollbar-thumb {
   background: var(--body-text); 
@@ -136,5 +143,5 @@ details > summary {
 }
 #background-themes .theme:hover {
   background-color: var(--body-hover);
-}
+} */ 
 </style>

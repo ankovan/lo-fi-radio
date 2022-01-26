@@ -6,11 +6,14 @@
       '--body-hover': theme.bodyHover
     }"
   >
-    <div><Background @loaded ="loading"/></div>
-    <div><Effects/></div>
-    <div><Theme @toggleTheme = "toggleTheme"/></div>
-    <div><Loading v-show="isLoading"/></div>
-    <div><Player/></div>
+    <Background :currentBackground="currentBackground" @loaded ="loading"/>
+    <div class="menus">
+      <Effects/>
+      <BackgroundMenu @changeBackground ="changeBackground"/>
+      <Theme @toggleTheme = "toggleTheme"/>
+    </div>
+    <Loading v-show="isLoading"/>
+    <Player/>
   </div>
 </template>
 <script>
@@ -18,6 +21,7 @@ import Background from "@/components/Background"
 import Player from "@/components/Player"
 import Loading from "@/components/Loading"
 import Theme from "@/components/Theme"
+import BackgroundMenu from "@/components/BackgroundMenu"
 import Effects from "@/components/Effects"
 export default {
   components: {
@@ -26,6 +30,7 @@ export default {
     Loading,
     Theme,
     Effects,
+    BackgroundMenu
   },
   data() {
     return {
@@ -46,7 +51,10 @@ export default {
           bodyText: "rgb(85, 85, 85)",
           bodyHover: "rgb(175, 175, 175)",
         }
-      }
+      },
+      currentBackground: {
+        name: "a retro room", url: "https://ankovan.drewdru.com/lfr/backgrounds/retro-room.mp4", type: "video",
+      },
     }
   },
   methods: {
@@ -61,6 +69,9 @@ export default {
         this.theme = this.themes.light
         document.body.style.backgroundColor = this.themes.light.body;
       }
+    },
+    changeBackground(background) {
+      this.currentBackground = background;
     }
   },
 };
@@ -74,5 +85,11 @@ export default {
 }
 #app {
   --background-color: black;
+}
+.menus {
+  position: fixed;
+  top: 0.8rem;
+  right: 0.8rem;
+  display: flow-root;
 }
 </style>
