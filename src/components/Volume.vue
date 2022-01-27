@@ -27,7 +27,7 @@ export default {
       this.lastVolume = this.volume
       this.isMuted = this.defaultVolume == 0 ? true: false
     }
-    this.volume = localStorage.getItem("volume")
+    // this.volume = localStorage.getItem("volume")
   },
   methods: {
      changeVolume() {
@@ -42,7 +42,7 @@ export default {
         this.isMuted = true;
       }
       this.$emit("mute", this.isMuted)
-      localStorage.setItem("volume", this.volume)
+      // localStorage.setItem("volume", this.volume)
     },
     mute() {
 
