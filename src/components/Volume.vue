@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       isOpenVolumeChanger: false,
-      volume: 1,
+      volume: 0.5,
       isMuted: false,
       lastVolume: 1,
     }
@@ -27,6 +27,7 @@ export default {
       this.lastVolume = this.volume
       this.isMuted = this.defaultVolume == 0 ? true: false
     }
+    this.volume = localStorage.getItem("volume")
   },
   methods: {
      changeVolume() {
@@ -41,6 +42,7 @@ export default {
         this.isMuted = true;
       }
       this.$emit("mute", this.isMuted)
+      localStorage.setItem("volume", this.volume)
     },
     mute() {
 
@@ -55,8 +57,6 @@ export default {
          this.volume = this.lastVolume
          this.changeVolume()
        }
-      // TODO: emit toggleMute
-      // on template handel @toggleMute and change mute value
     },
   },
 }
@@ -66,7 +66,6 @@ export default {
 -webkit-appearance: none;
 background: var(--body);
 border-radius: 0.8rem;
-/* transform: rotate(270deg); */
 }
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;

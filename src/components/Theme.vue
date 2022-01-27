@@ -27,6 +27,10 @@
 
 <script>
 export default {
+  mounted() {
+    this.isDarkMode = localStorage.getItem("theme") =="true"?true:false
+    this.$emit("toggleTheme", this.isDarkMode)
+  },
   data() {
     return {
       isDarkMode: false,
@@ -36,6 +40,7 @@ export default {
     toggleTheme() {
       this.isDarkMode = !this.isDarkMode;
       this.$emit("toggleTheme", this.isDarkMode)
+      localStorage.setItem("theme", this.isDarkMode)
     },
   },
 }

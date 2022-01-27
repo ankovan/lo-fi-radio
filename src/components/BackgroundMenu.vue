@@ -15,6 +15,9 @@
 </template>
 <script>
 export default {
+mounted() {
+  this.changeBackground(JSON.parse(localStorage.getItem("background") || '{name: "retro room", url: "https://ankovan.drewdru.com/lfr/backgrounds/retro-room.mp4", type: "video"}'))
+},
 data() {
     return {
       backgrounds: [
@@ -44,12 +47,6 @@ data() {
   methods: {
     changeBackground(background) {
       this.$emit("changeBackground", background)
-      // this.$emit("loaded", false);
-      // if (background.type == "video") {
-      //   this.$refs.video.src = background.url
-      // } else {
-      //   setTimeout(() => this.$emit("loaded", true), 0)
-      // }
     },
   }
 }

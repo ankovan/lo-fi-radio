@@ -12,15 +12,6 @@
           <i v-show ="isPlayed" @click="pauseMusic()" class="material-icons player-button">pause</i>
           <i @click="nextMusic()" class="material-icons player-button" id ="button-next">skip_next</i>
           <Volume @mute="mute" playerRef="audio"/>
-          <!-- <details :open = "isOpenVolumeChanger" @mouseover="isOpenVolumeChanger = true" @mouseout="isOpenVolumeChanger = false">
-            <summary>
-              <i @click ="mute()" v-show ="!isMuted" class="material-icons player-button">volume_up</i>
-              <i @click ="mute()" v-show ="isMuted" class="material-icons player-button">volume_off</i>
-            </summary>
-            <div class="slidecontainer">
-              <input @change="changeVolume()" v-model="volume" type="range" min="0" max="1" step="0.1" class="slider" id="myRange">
-            </div>
-          </details> -->
           <audio id ="html5-player" @ended ="ended" ref="audio" controls crossorigin playsinline :muted ="isMuted">
             <source
                 :src="currentMusic.url"
@@ -124,8 +115,6 @@ export default {
       },
       currentMusicId: 0,
       isPlayed: false,
-      // isOpenVolumeChanger: false,
-      // volume: 1,
       isMuted: false,
       isRepeated: false,
       scrollLeftPosition: 0,
@@ -143,6 +132,13 @@ export default {
         left: this.scrollLeftPosition,
       });
     }, 80)
+    this.currentMusic = JSON.parse(localStorage.getItem("music") || '{name: "boo", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/boo.mp3"}')
+    this.currentMusicId = this.playlist.findIndex(item=>(item.name==this.currentMusic.name && item.author==this.currentMusic.author))
+  },
+  watch: {
+    currentMusic(newMusic) {
+      localStorage.setItem("music", JSON.stringify(newMusic));
+    }
   },
   methods: {
     nextMusic() {
@@ -178,13 +174,6 @@ export default {
       this.$refs.audio.pause();
       this.isPlayed = false;
     },
-    // changeVolume() {
-    //   this.isMuted = false;
-    //   this.$refs.audio.volume = this.volume;
-    //   if (this.$refs.audio.volume == 0) {
-    //     this.isMuted = true;
-    //   }
-    // },
     mute(mute) {
       this.isMuted = mute; 
     },
@@ -218,9 +207,6 @@ export default {
   color: var(--body-text);
   margin: 0 0.8rem 0 0.8rem;
 }
-/* #custom-player .player-button:hover{
-  background-color: var(--body-hover);
-}      */
 details {
   position: relative;
 }
@@ -239,20 +225,6 @@ details > summary {
   width: 8rem;
   height: 0.7rem;
 }
-/* .slider {
--webkit-appearance: none;
-background: var(--body);
-border-radius: 0.8rem;
-}
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 0.75rem;
-  height: 0.75rem;
-  background: var(--body-text);
-  cursor: pointer;
-  border-radius: 1rem;
-}  */
 .row {
   display: flex;
   justify-content: center;
