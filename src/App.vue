@@ -3,7 +3,8 @@
     :style="{
       '--body': theme.body,
       '--body-text': theme.bodyText,
-      '--body-hover': theme.bodyHover
+      '--body-hover': theme.bodyHover,
+      '--body-scroll': theme.bodyScroll
     }"
   >
     <Background :currentBackground="currentBackground" @loaded ="loading"/>
@@ -39,17 +40,20 @@ export default {
         body: "rgb(240, 240, 240, 0.75)",
         bodyText: "rgb(85, 85, 85)",
         bodyHover: "rgb(175, 175, 175)",
+        bodyScroll: "rgb(170, 170, 170, 0.75)",
       },
       themes: {
         dark: {
           body: "rgb(85, 85, 85, 0.75)",
           bodyText: "rgb(240, 240, 240)",
           bodyHover: "rgb(100, 100, 100)",
+          bodyScroll: "rgb(150, 150, 150, 0.75)",
         },
         light: {
           body: "rgb(240, 240, 240, 0.75)",
           bodyText: "rgb(85, 85, 85)",
           bodyHover: "rgb(175, 175, 175)",
+          bodyScroll: "rgb(170, 170, 170, 0.75)",
         }
       },
       currentBackground: {

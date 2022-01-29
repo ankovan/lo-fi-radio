@@ -7,6 +7,8 @@
         <div class="row">
           <i @click="repeatMusic()" v-show="!isRepeated" class="material-icons player-button">repeat</i>
           <i @click="repeatMusic()" v-show="isRepeated" class="material-icons player-button">repeat_one</i>
+          <i v-show="!isShuffleOn" @click="shuffleMusic()" class="material-icons player-button">shuffle</i>
+          <i v-show="isShuffleOn" @click="shuffleMusic()" class="material-icons player-button">shuffle_on</i>
           <i @click="prevMusic()" class="material-icons player-button" id="button-prev">skip_previous</i>
           <i v-show="!isPlayed" @click="playMusic()" class="material-icons player-button">play_arrow</i>
           <i v-show ="isPlayed" @click="pauseMusic()" class="material-icons player-button">pause</i>
@@ -66,13 +68,11 @@ export default {
         {name: "c'est la vie", author: "nohidea", url: "https://ankovan.drewdru.com/lfr/music/c'est-la-vie.mp3"},
         {name: "climbing", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/climbing.mp3"},
         {name: "clouds", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/clouds.mp3"},
-        {name: "cold seas", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/cold-seas.mp3"},
         {name: "comfort zone", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/comfort-zone.mp3"},
-        {name: "coming home", author: "nohidea", url: "https://ankovan.drewdru.com/lfr/music/coming-home.mp3"},
         {name: "commodore", author: "nohidea", url: "https://ankovan.drewdru.com/lfr/music/commodore.mp3"},
         {name: "confusion", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/confusion.mp3"},
         {name: "cruisin", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/cruisin.mp3"},
-        {name: "dance-in-the-night", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/dance-in-the-night.mp3"},
+        {name: "dance in the night", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/dance-in-the-night.mp3"},
         {name: "dawn", author: "nohidea", url: "https://ankovan.drewdru.com/lfr/music/dawn.mp3"},
         {name: "defeated", author: "nohidea", url: "https://ankovan.drewdru.com/lfr/music/defeated.mp3"},
         {name: "dime", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/dime.mp3"},
@@ -93,7 +93,6 @@ export default {
         {name: "feelings.", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/feelings..mp3"},
         {name: "feel me", author: "nohidea", url: "https://ankovan.drewdru.com/lfr/music/feel-me.mp3"},
         {name: "first luv.", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/first luv..mp3"},
-        {name: "flow on", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/flow-on.mp3"},
         {name: "forgive me", author: "nohidea", url: "https://ankovan.drewdru.com/lfr/music/forgive-me.mp3"},
         {name: "forward", author: "nohidea", url: "https://ankovan.drewdru.com/lfr/music/forward.mp3"},
         {name: "fruits..", author: "nohidea", url: "https://ankovan.drewdru.com/lfr/music/fruits...mp3"},
@@ -118,31 +117,51 @@ export default {
       isMuted: false,
       isRepeated: false,
       scrollLeftPosition: 0,
+      isShuffleOn: false,
     }
   },
   mounted() {
-    setInterval(()=>{
-      var maxScrollLeft = this.$refs.name.scrollWidth - this.$refs.name.clientWidth;
-      if (this.scrollLeftPosition >= maxScrollLeft-1) {
-        this.scrollLeftPosition = 0;
-      } else {
-        this.scrollLeftPosition = this.scrollLeftPosition + 1
-      }
-      this.$refs.name.scroll({
-        left: this.scrollLeftPosition,
-      });
-    }, 80)
+    // setInterval(()=>{
+    //   var maxScrollLeft = this.$refs.name.scrollWidth - this.$refs.name.clientWidth;
+    //   if (this.scrollLeftPosition >= maxScrollLeft-1) {
+    //     this.scrollLeftPosition = 0;
+    //   } else {
+    //     this.scrollLeftPosition = this.scrollLeftPosition + 1
+    //   }
+    //   this.$refs.name.scroll({
+    //     left: this.scrollLeftPosition,
+    //   });
+    // }, 80)
     this.currentMusic = JSON.parse(localStorage.getItem("music") || '{name: "boo", author: "jinsang", url: "https://ankovan.drewdru.com/lfr/music/boo.mp3"}')
     this.currentMusicId = this.playlist.findIndex(item=>(item.name==this.currentMusic.name && item.author==this.currentMusic.author))
+    // this.volume = localStorage.getItem("volume")
   },
   watch: {
     currentMusic(newMusic) {
       localStorage.setItem("music", JSON.stringify(newMusic));
+      // localStorage.setItem("volume", this.volume);
     }
   },
   methods: {
+    shuffleMusic(randomMusic) {
+      this.isShuffleOn=!this.isShuffleOn
+
+
+    },
     nextMusic() {
-      this.currentMusicId++
+
+      if (this.isShuffleOn) {
+        const randomMusicId =  Math.floor(Math.random()*this.playlist.length)
+        if (randomMusicId == this.currentMusicId) {
+          this.currentMusicId++
+        } else {
+          this.currentMusicId = randomMusicId
+        }
+      } else {
+        this.currentMusicId++
+      }
+
+
       if (this.currentMusicId == this.playlist.length) {
         this.currentMusicId = 0;
       }
