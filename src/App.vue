@@ -40,7 +40,7 @@ export default {
         body: "rgb(240, 240, 240, 0.75)",
         bodyText: "rgb(85, 85, 85)",
         bodyHover: "rgb(175, 175, 175)",
-        bodyScroll: "rgb(170, 170, 170, 0.75)",
+        bodyScroll: "rgb(165, 165, 165, 0.75)",
       },
       themes: {
         dark: {
@@ -53,7 +53,7 @@ export default {
           body: "rgb(240, 240, 240, 0.75)",
           bodyText: "rgb(85, 85, 85)",
           bodyHover: "rgb(175, 175, 175)",
-          bodyScroll: "rgb(170, 170, 170, 0.75)",
+          bodyScroll: "rgb(165, 165, 165, 0.75)",
         }
       },
       currentBackground: {

@@ -16,7 +16,8 @@
 <script>
 export default {
 mounted() {
-  this.changeBackground(JSON.parse(localStorage.getItem("background") || '{name: "retro room", url: "https://ankovan.drewdru.com/lfr/backgrounds/retro-room.mp4", type: "video"}'))
+  const defaultBackground = '{"name": "retro room", "url": "https://ankovan.drewdru.com/lfr/backgrounds/retro-room.mp4", "type": "video"}';
+  this.changeBackground(JSON.parse(localStorage.getItem("background") || defaultBackground))
 },
 data() {
     return {
