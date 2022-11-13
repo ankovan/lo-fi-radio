@@ -57,7 +57,7 @@ export default {
         }
       },
       currentBackground: {
-        name: "a retro room", url: "https://ankovan.drewdru.com/lfr/backgrounds/retro-room.mp4", type: "video",
+        name: "a retro room", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/retro-room.mp4", type: "video",
       },
     }
   },

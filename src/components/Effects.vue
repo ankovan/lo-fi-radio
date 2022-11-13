@@ -33,9 +33,9 @@ export default {
   data() {
     return {
       effects: [
-        {isMuted: true, isPlayed: false, name:"rain", url:"https://ankovan.drewdru.com/lfr/effects/rain.mp3"},
-        {isMuted: true, isPlayed: false, name: "wind", url:"https://ankovan.drewdru.com/lfr/effects/wind.mp3"},
-        {isMuted: true, isPlayed: false, name:"fire", url:"https://ankovan.drewdru.com/lfr/effects/fire.mp3"}
+        {isMuted: true, isPlayed: false, name:"rain", url:"https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/effects/rain.mp3"},
+        {isMuted: true, isPlayed: false, name: "wind", url:"https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/effects/wind.mp3"},
+        {isMuted: true, isPlayed: false, name:"fire", url:"https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/effects/fire.mp3"}
       ],
       isOpenEffects: false,
     }

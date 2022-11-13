@@ -16,31 +16,31 @@
 <script>
 export default {
 mounted() {
-  const defaultBackground = '{"name": "retro room", "url": "https://ankovan.drewdru.com/lfr/backgrounds/retro-room.mp4", "type": "video"}';
+  const defaultBackground = '{"name": "retro room", "url": "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/retro-room.mp4", "type": "video"}';
   this.changeBackground(JSON.parse(localStorage.getItem("background") || defaultBackground))
 },
 data() {
     return {
       backgrounds: [ 
-        {name: "retro room", url: "https://ankovan.drewdru.com/lfr/backgrounds/retro-room.mp4", type: "video"},
-        {name: "cat girl", url: "https://ankovan.drewdru.com/lfr/backgrounds/cat-girl.mp4", type: "video"},
-        {name: "space station", url: "https://ankovan.drewdru.com/lfr/backgrounds/cosmo-girl.mp4", type: "video"},
-        {name: "street telephone", url: "https://ankovan.drewdru.com/lfr/backgrounds/street-telephone.mp4", type: "video"},
-        {name: "two umbrellas", url: "https://ankovan.drewdru.com/lfr/backgrounds/two-umbrellas.mp4", type: "video"},
-        {name: "office", url: "https://ankovan.drewdru.com/lfr/backgrounds/office-girls.mp4", type: "video"},
-        {name: "koi pond", url: "https://ankovan.drewdru.com/lfr/backgrounds/koi-pond.mp4", type: "video"},
-        {name: "street art", url: "https://ankovan.drewdru.com/lfr/backgrounds/street-art.mp4", type: "video"},
-        {name: "howl and sophie", url: "https://ankovan.drewdru.com/lfr/backgrounds/howl-and-sophie.mp4", type: "video"},
-        {name: "cow", url: "https://ankovan.drewdru.com/lfr/backgrounds/cow.mp4", type: "video"},
-        {name: "night pines", url: "https://ankovan.drewdru.com/lfr/backgrounds/night-pines.mp4", type: "video"},
-        {name: "grass", url: "https://ankovan.drewdru.com/lfr/backgrounds/grass.mp4", type: "video"},
-        {name: "puddle", url: "https://ankovan.drewdru.com/lfr/backgrounds/puddle.mp4", type: "video"},
-        {name: "car drive", url: "https://ankovan.drewdru.com/lfr/backgrounds/car-drive.mp4", type: "video"},
-        {name: "keyhole day", url: "https://ankovan.drewdru.com/lfr/backgrounds/keyhole-day.mp4", type: "video"},
-        {name: "keyhole night", url: "https://ankovan.drewdru.com/lfr/backgrounds/keyhole-night.mp4", type: "video"},
-        {name: "temple", url: "https://ankovan.drewdru.com/lfr/backgrounds/temple.mp4", type: "video"},
-        {name: "vending machines", url: "https://ankovan.drewdru.com/lfr/backgrounds/vending-machines.mp4", type: "video"},
-        {name: "sleeping cat", url: "https://ankovan.drewdru.com/lfr/backgrounds/sleeping-cat.gif", type: "image"},
+        {name: "retro room", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/retro-room.mp4", type: "video"},
+        // {name: "cat girl", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/cat-girl.mp4", type: "video"},
+        {name: "space station", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/cosmo-girl.mp4", type: "video"},
+        {name: "street telephone", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/street-telephone.mp4", type: "video"},
+        {name: "two umbrellas", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/two-umbrellas.mp4", type: "video"},
+        {name: "office", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/office-girls.mp4", type: "video"},
+        {name: "koi pond", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/koi-pond.mp4", type: "video"},
+        {name: "street art", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/street-art.mp4", type: "video"},
+        {name: "howl and sophie", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/howl-and-sophie.mp4", type: "video"},
+        {name: "cow", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/cow.mp4", type: "video"},
+        {name: "night pines", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/night-pines.mp4", type: "video"},
+        {name: "grass", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/grass.mp4", type: "video"},
+        {name: "puddle", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/puddle.mp4", type: "video"},
+        {name: "car drive", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/car-drive.mp4", type: "video"},
+        {name: "keyhole day", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/keyhole-day.mp4", type: "video"},
+        {name: "keyhole night", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/keyhole-night.mp4", type: "video"},
+        {name: "temple", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/temple.mp4", type: "video"},
+        {name: "vending machines", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/vending-machines.mp4", type: "video"},
+        {name: "sleeping cat", url: "https://npwlpbbsfrhprurdmorf.supabase.co/storage/v1/object/public/lo-fi-radio/assets/backgrounds/sleeping-cat.gif", type: "image"},
       ],
       isOpenBackgroundChanger: false,
     }
